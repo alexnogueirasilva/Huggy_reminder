@@ -7,52 +7,17 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## About Laravel
+## Sobre a aplicação Reminder
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+<p> Uma aplicação construida em laravel na versão <b>5.5.*</b> do Laravel. A aplicação consiste em o usuário criar lembretes
+    para ser ou não notificado dependendo da escolha em, não notificar, notificação diária ou a cada hora.
+</p>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Instalando a aplicação no Windows.
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
-
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Pulse Storm](http://www.pulsestorm.net/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- Voce vai precisar da versão do PHP 7.1 ou 7.3 que são as versões que dão suporte a versão 5.5 do Laravel.
+- Baixe o [Xampp-7.3](https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/7.3.28/) de acordo com o seu sistema operacional Windows x86/x64, seguindo a instalação padrão e escolhendo os módulos necessários [apache, php, mysql] ele fornece um ambiente completo para sua aplicação rodar.
+- Após a instalação do xampp clone o repositório dentro da pasta htdocs que foi criada na instalação do xampp <b>C:/xampp/htdocs</b>
+- Acesse o diretório clonado faça uma cópia do arquivo .env.example e renomei para .env rode o comando php artisan key:generate e nesse arquivo faça a configuração do banco de dados lembrando que a instalação padrão do Xampp fornece um banco de dados com usuario root e sem senha.
+- Rode os comando php artisan migrate --seed e depois php artisan serve ou start o Xampp lembrando que se peferir iniciar o xampp precisa passar o caminha na url do navegador até o diretório /public.
+- Para acessar clique no botão registra-se e faça uma conta
