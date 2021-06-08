@@ -21,7 +21,7 @@
                                  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
                                  preserveAspectRatio="xMidYMid slice" focusable="false"><title>{{ $reminder->reminder }}</title>
                                 <rect width="100%" height="100%" fill="#55595c"/>
-                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">{{ $reminder->reminder }}</text>
                             </svg>
 
                             <div class="card-body">
@@ -30,7 +30,7 @@
                                     <div class="btn-group">
                                         <a href="{{ route('reminder.edit', ['reminder' => $reminder->id]) }}"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
                                     </div>
-                                    <small class="text-muted">9 mins</small>
+                                    <small class="text-muted">{{ \Carbon\Carbon::parse($reminder->created_at)->diffForHumans() }}</small>
                                 </div>
                             </div>
                         </div>

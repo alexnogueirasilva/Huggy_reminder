@@ -19,7 +19,7 @@
 <div class="container">
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-sm">
-            <a class="navbar-brand" href="#">Carousel</a>
+            <a class="navbar-brand" href="#">Huggy Lembretes</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -46,6 +46,9 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="#">
                                 <li>{{ Auth::user()->name }}</li>
+                            </a>
+                            <a class="dropdown-item" href="{{ route('reminder.index') }}">
+                                <li>Seus Lembretes</li>
                             </a>
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
