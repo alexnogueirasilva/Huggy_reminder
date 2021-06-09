@@ -32,7 +32,7 @@
                 <div class="row mb-3">
                     <label for="inputDate" class="col-sm-2 col-form-label">Notificação</label>
                     <div class="col-sm-10">
-                        <input type="datetime-local" class="form-control" id="inputDate" name="notification">
+                        <textarea name="description" id="textareaDescription" cols="30" rows="5" class="form-control">{{ old('description') }}</textarea>
                     </div>
                 </div>
                 <fieldset class="row mb-3">
