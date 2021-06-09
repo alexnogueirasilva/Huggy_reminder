@@ -14,9 +14,6 @@
 
 Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/', function () {
-        return view('reminder.create');
-    });
-
+    Route::get('/', 'Reminder\ReminderController@create');
     Route::resource('reminder', 'Reminder\ReminderController');
 });

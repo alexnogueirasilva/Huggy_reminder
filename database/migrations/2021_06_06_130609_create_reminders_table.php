@@ -17,7 +17,6 @@ class CreateRemindersTable extends Migration
             $table->increments('id');
             $table->string('reminder');
             $table->string('email');
-            $table->dateTime('notification');
             $table->integer('repetition');
             $table->timestamps();
         });

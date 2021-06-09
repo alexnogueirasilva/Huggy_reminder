@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Reminder;
 use App\Jobs\SendReminder;
 use App\Reminder\Reminder;
 use App\Mail\Reminder\Reminder as ReminderMail;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Reminder\Reminder as ReminderRequest;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use function Illuminate\Mail\send;
@@ -17,7 +19,7 @@ class ReminderController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -30,7 +32,7 @@ class ReminderController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -40,8 +42,8 @@ class ReminderController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Response
      */
     public function store(ReminderRequest $request)
     {
@@ -54,7 +56,7 @@ class ReminderController extends Controller
             ''
         ];
 
-        
+
         if ($reminder->repetition == 2) {
             SendReminder::dispatch($data)->delay(now()->addDay(1));
         }
@@ -71,8 +73,8 @@ class ReminderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return Response
      */
     public function show($id)
     {
@@ -82,12 +84,12 @@ class ReminderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return Response
      */
-    public function edit($id)
+    public function edit(Reminder $reminder)
     {
-        $reminder = Reminder::where('id', $id)->first();
+        $reminder = Reminder::where('id', $reminder->id)->first();
         return view('reminder.edit', [
             'reminder' => $reminder
         ]);
@@ -96,20 +98,24 @@ class ReminderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param ReminderRequest $request
+     * @param Reminder $reminder
+     * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(ReminderRequest $request, Reminder $reminder)
     {
-        //
+        $reminderUpdate = Reminder::where('id', $reminder->id)->first();
+        $reminderUpdate->fill($request->all());
+        $reminderUpdate->save();
+
+        return redirect()->route('reminder.edit')->with('success', 'Lembrete alterado com sucesso');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return Response
      */
     public function destroy($id)
     {

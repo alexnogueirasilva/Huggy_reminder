@@ -12,7 +12,8 @@ class Reminder extends Model
     protected $fillable = [
         'reminder',
         'email',
-        'notification',
-        'repetition'
+        'description',
+        'repetition',
+        'user_id'
     ];
 }

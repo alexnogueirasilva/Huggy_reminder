@@ -16,6 +16,6 @@ class Controller extends BaseController
 
     public function __construct()
     {
-        $this->message = new Message();
+//        $this->message = new Message();
     }
 }

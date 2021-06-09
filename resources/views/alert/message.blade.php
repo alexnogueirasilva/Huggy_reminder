@@ -7,7 +7,9 @@
         </ul>
     </div>
 @endif
-@foreach (['danger', 'warning', 'success', 'info'] as $msg) @if(Session::has('alert-' . $msg))
-    {{ Session::get('alert-' . $msg) }} ×
 
-@endif @endforeach
+@if (session('success'))
+    <div class="alert-success}}">
+        {{ session('success') }}
+    </div>
+@endif

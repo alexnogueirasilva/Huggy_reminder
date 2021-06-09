@@ -27,7 +27,6 @@ class Reminder extends FormRequest
         return [
             'reminder' => 'required|min:5',
             'email' => 'required|email',
-            'notification' => 'required',
             'repetition' => 'required'
         ];
     }

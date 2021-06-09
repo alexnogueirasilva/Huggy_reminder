@@ -15,6 +15,7 @@
             <form method="POST" action="{{ route('reminder.store') }}">
                 {{ csrf_field() }}
                 <div class="row mb-3">
+                    <input type="hidden" name="user_id" value="{{ Auth::id() }}">
                     <label for="inputReminder" class="col-sm-2 col-form-label">Lembrete</label>
                     <div class="col-sm-10">
                         <input type="text" name="reminder" class="form-control" value="{{ old('reminder') }}"

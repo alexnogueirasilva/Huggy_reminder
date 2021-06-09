@@ -7,9 +7,11 @@
         </div>
         @include('alert.message')
         <div class="card-body">
-            <form action="{{ route('reminder.update', ['reminder', $reminder->id]) }}" method="post">
+            <form action="{{ route('reminder.update', ['reminder', $reminder->id]) }}" method="POST">
                 {{ csrf_field() }}
+                {{method_field('PUT')}}
                 <div class="row mb-3">
+                    <input type="hidden" name="user_id" value="{{ Auth::id() }}">
                     <label for="inputReminder" class="col-sm-2 col-form-label">Lembrete</label>
                     <div class="col-sm-10">
                         <input type="text" name="reminder" class="form-control" value="{{ $reminder->reminder}}"
@@ -25,7 +27,7 @@
                 <div class="row mb-3">
                     <label for="inputDate" class="col-sm-2 col-form-label">Notificação</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputDate" name="notification" value="{{ \Carbon\Carbon::parse($reminder->notification)->format('d/m/Y')}}">
+                        <textarea name="description" id="textareaDescription" cols="30" rows="5" class="form-control">{{ $reminder->description }}</textarea>
                     </div>
                 </div>
                 <fieldset class="row mb-3">
