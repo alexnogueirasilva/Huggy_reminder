@@ -7,7 +7,7 @@
         </div>
         @include('alert.message')
         <div class="card-body">
-            <form action="{{ route('reminder.update', ['reminder', $reminder->id]) }}" method="POST">
+            <form action="{{ route('reminder.update', ['reminder' => $reminder->id]) }}" method="POST">
                 {{ csrf_field() }}
                 {{method_field('PUT')}}
                 <div class="row mb-3">
@@ -56,7 +56,7 @@
                         </div>
                     </div>
                 </fieldset>
-                <button  class="btn btn-primary">Salvar</button>
+                <button  class="btn btn-primary">Atualizar</button>
             </form>
         </div>
 @endsection

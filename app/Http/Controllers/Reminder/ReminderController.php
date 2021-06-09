@@ -102,13 +102,15 @@ class ReminderController extends Controller
      * @param Reminder $reminder
      * @return Response
      */
-    public function update(ReminderRequest $request, Reminder $reminder)
+    public function update( Request $request, Reminder $reminder)
     {
         $reminderUpdate = Reminder::where('id', $reminder->id)->first();
         $reminderUpdate->fill($request->all());
         $reminderUpdate->save();
 
-        return redirect()->route('reminder.edit')->with('success', 'Lembrete alterado com sucesso');
+        return redirect()->route('reminder.edit', [
+            'reminder' => $reminderUpdate->id
+        ])->with('success', 'Lembrete alterado com sucesso');
     }
 
     /**
